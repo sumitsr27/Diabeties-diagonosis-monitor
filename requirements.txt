@@ -1,0 +1,15 @@
+kafka-python==2.0.2
+confluent-kafka==2.1.0
+pandas
+numpy
+scikit-learn
+joblib
+fastapi
+uvicorn[standard]
+streamlit
+shap
+pyarrow
+fastparquet
+hdfs
+requests
+python-dotenv

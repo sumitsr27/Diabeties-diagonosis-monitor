@@ -1,0 +1,12 @@
+{
+"name": "hdfs-sink",
+"config": {
+"connector.class": "io.confluent.connect.hdfs.HdfsSinkConnector",
+"tasks.max": "1",
+"topics": "vitals",
+"hdfs.url": "hdfs://hdfs-namenode:9000",
+"hadoop.conf.dir": "/etc/hadoop/conf",
+"format.class": "io.confluent.connect.hdfs.parquet.ParquetFormat",
+"schema.compatibility": "NONE"
+}
+}
