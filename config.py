@@ -21,7 +21,7 @@ KAFKA_BOOTSTRAP_SERVERS = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'localhost:9092')
 KAFKA_TOPIC = os.getenv('KAFKA_TOPIC', 'vitals')
 
 # HDFS Configuration
-HDFS_URL = os.getenv('HDFS_URL', 'http://hdfs-namenode:9870')
+HDFS_URL = os.getenv('HDFS_URL', 'http://localhost:9870')
 HDFS_USER = os.getenv('HDFS_USER', 'root')
 HDFS_DIR = os.getenv('HDFS_DIR', '/data/vitals/')
 

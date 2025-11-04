@@ -64,17 +64,30 @@ pip install -r requirements.txt
 ```
 
 ### Starting Services
-1. Start Kafka infrastructure:
+1. Start Kafka and Hadoop infrastructure:
 ```bash
 docker-compose up -d
 ```
 
-2. Start the Model Server:
+This will start:
+- Zookeeper (port 2181)
+- Kafka (port 9092)
+- Hadoop NameNode (port 9870)
+- Hadoop DataNode
+
+2. Verify HDFS is running:
+```bash
+# Check HDFS web UI at http://localhost:9870
+# Or check containers
+docker ps
+```
+
+3. Start the Model Server:
 ```bash
 uvicorn model_server.app:app --reload
 ```
 
-3. Start the Streamlit Dashboard:
+4. Start the Streamlit Dashboard:
 ```bash
 streamlit run dashboard/streamlit_app.py
 ```

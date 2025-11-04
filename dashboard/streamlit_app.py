@@ -60,7 +60,8 @@ try:
             st.info(f"👤 Patient ID: {latest_row['patient_id']} | 🕐 Last updated: {last_timestamp.strftime('%Y-%m-%d %H:%M:%S')}")
         
         st.write("### Recent Vitals History")
-        st.dataframe(latest_data.head(20), use_container_width=True)
+        # Streamlit deprecates use_container_width; use width='stretch' for full-width tables
+        st.dataframe(latest_data.head(20), width='stretch')
     else:
         st.warning("No vitals data available yet. Waiting for data from Kafka...")
 except FileNotFoundError:
@@ -90,7 +91,8 @@ age_default = 30
 
 try:
     if 'latest_data' in locals() and not latest_data.empty:
-        latest_row = latest_data.iloc[-1]
+        # Use the most recent record for defaults
+        latest_row = latest_data.iloc[0]
         # Map available vitals to prediction fields where sensible
         # Use systolic as a proxy for blood_pressure
         if use_latest:
